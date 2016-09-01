@@ -33,3 +33,15 @@ set t_Co=256
 syntax on
 set background=dark
 colorscheme railscasts
+set number
+set title
+set expandtab
+set shiftwidth=2
+set whichwrap=b,s,[,],<,>
+set backspace=indent,eol,start
+set showcmd
+set cursorline
+set cursorcolumn
+set virtualedit=onemore
+set list listchars=tab:\‣\-
+

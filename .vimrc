@@ -71,3 +71,12 @@ set laststatus=2 "ステータス行を常に表示
 nnoremap あ a
 nnoremap い i
 nnoremap お o
+nnoremap っｄ dd
+nnoremap っｙ yy
+nnoremap ｐ p
+nnoremap う u
+nnoremap Ｇ G
+nnoremap っｇ gg
+nnoremap Ａ A
+nnoremap Ｉ I
+nnoremap Ｏ O

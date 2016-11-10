@@ -68,7 +68,7 @@ if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\e[32m\]\u@Ubuntu \[\e[35m\]\W\[\e[31m\]$(__git_ps1 " (%s)")\[\e[0m\] \$ '
 else
 #    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[0m\][\[\e[32m\]\u@\[\e[34m\]\h \W\[\e[35m\]$(__git_ps1 " (%s)")\[\e[0m\]]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[32m\]\u@Ubuntu \[\e[35m\]\W\[\e[31m\]$(__git_ps1 " (%s)")\[\e[0m\] \$ '
 fi
 unset color_prompt force_color_prompt
 

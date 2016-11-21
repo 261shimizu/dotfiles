@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/unite.vim'
 Plug 'ujihisa/unite-colorscheme'
+Plug 'itchyny/lightline.vim' " ステータスライン
 
 " カラースキーム一覧(:Unite colorscheme -auto-preview でプレビュー)
  Plug 'altercation/vim-colors-solarized' " solarized
@@ -88,3 +89,5 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-t> :NERDTreeToggle<CR>
 
+" lightline設定
+let g:lightline = { 'colorscheme': 'wombat' }

@@ -6,6 +6,11 @@ Plug 'Shougo/unite.vim'
 Plug 'ujihisa/unite-colorscheme'
 Plug 'itchyny/lightline.vim' " ステータスライン
 
+" マークダウン
+Plug 'godlygeek/tabular'
+Plug 'joker1007/vim-markdown-quote-syntax'
+Plug 'rcmdnk/vim-markdown'
+
 " カラースキーム一覧(:Unite colorscheme -auto-preview でプレビュー)
  Plug 'altercation/vim-colors-solarized' " solarized
  Plug 'croaker/mustang-vim'              " mustang
@@ -91,3 +96,20 @@ map <C-t> :NERDTreeToggle<CR>
 
 " lightline設定
 let g:lightline = { 'colorscheme': 'wombat' }
+
+" vim-markdown設定(最初3行はoctopressとかの話であんまり関係ない)
+let g:vim_markdown_liquid=1
+let g:vim_markdown_frontmatter=1
+let g:vim_markdown_math=1
+au BufRead,BufNewFile *.{txt,text} set filetype=markdown
+hi link htmlItalic LinuNr
+hi link htmlBold WarningMsg
+hi link htmlBoldItalic ErrorMsg
+
+" 行末の空白文字を可視化
+highlight TrailingSpaces ctermbg=red guibg=#FF0000
+highlight Tabs ctermbg=black guibg=#000000
+au BufNewFile,BufRead * call matchadd('TrailingSpaces', ' \{-1,}$')
+au BufNewFile,BufRead * call matchadd('Tabs', '\t')
+
+

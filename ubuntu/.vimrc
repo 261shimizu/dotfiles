@@ -93,6 +93,8 @@ let NERDTreeShowHidden=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-t> :NERDTreeToggle<CR>
+" NERDTreeが開いていたらNERDTreeも一緒に閉じる。↲
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " lightline設定
 let g:lightline = { 'colorscheme': 'wombat' }
@@ -112,4 +114,20 @@ highlight Tabs ctermbg=black guibg=#000000
 au BufNewFile,BufRead * call matchadd('TrailingSpaces', ' \{-1,}$')
 au BufNewFile,BufRead * call matchadd('Tabs', '\t')
 
+" the jprefix key
+nnoremap  [Tag] <Nop>
+nmap  t [Tag]
+
+" Tab jump t1で一番左のタブ、t2で2番めのタブにジャンプ
+for n in range(1,9)
+  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+" tc 新しいタブを一番右に作る
+map <silent> [Tag]c :tablast <bar> tabnew<CR>
+" tx タブを削除
+map <silent> [Tag]x :tabclose<CR>
+" tl 次のタブ
+map <silent> [Tag]l :tabnext<CR>
+" th 前のタブ
+map <silent> [Tag]h :tabprevious<CR>
 

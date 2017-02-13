@@ -18,7 +18,7 @@ Plug 'joker1007/vim-markdown-quote-syntax'
 Plug 'rcmdnk/vim-markdown'
 Plug 'kannokanno/previm'
 
-" カラースキーム一覧
+" カラースキーム一覧(:Unite colorscheme -auto-previerでプレビュー）
 Plug 'altercation/vim-colors-solarized' " solarized
 Plug 'croaker/mustang-vim'              " mustang
 Plug 'jeffreyiacono/vim-colors-wombat'  " wombat
@@ -44,11 +44,12 @@ call plug#end()
 
 set t_Co=256
 
+" vimの表示設定
 syntax on
 set background=dark
 colorscheme atom-dark-256
 set number " 行数表示
-set title "
+set title " 編集中のファイル名表示
 set showmatch "対応する括弧を強調表示
 
 set expandtab "タブ入力を複数のスペースに置き換え
@@ -60,7 +61,7 @@ set smartindent "改行時に入力された行の末尾に合わせて次の行
 
 set whichwrap=b,s,[,],<,> "行頭行末の左右移動で行をまたぐ
 set backspace=indent,eol,start "バックスペースの制限解除
-set showcmd "
+set showcmd " 入力中コマンド表示
 set cursorline "カーソル行強調
 set cursorcolumn "カーソル列強調
 set virtualedit=onemore " 回り込み
@@ -102,10 +103,11 @@ set clipboard=unnamed,autoselect
 " NERDTree関連
 let g:NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
-" autocmd vimenter * NERDTree ←Treeを常に表示
+autocmd vimenter * NERDTree "←Treeを常に表示
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-t> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTRee.isTabTree()) | q | endif
 
 " lightline設定
 let g:lightline = { 'colorscheme': 'wombat'}
@@ -129,5 +131,23 @@ au BufNewFile,BufRead * call matchadd('Tabs', '\t')
 set nofoldenable " 折りたたみ無効化
 
 " gist連携
-let g:gista#client#default_username = 'username'
+let g:gista#client#default_username = '261shimizu'
+
+" the prefix key
+nnoremap [Tag] <Nop>
+nmap t [Tag]
+
+" Tab jump t1で一番左のタブ、t2で2番めのタブにジャンプ
+for n in range(1,9)
+  execute 'nnoremap <silent> [Tag]'.n ':<C-u>tabnext'.n.'<CR>'
+endfor
+
+"タブを一番右に作る
+map <silent> [Tag]c :tablast <bar> tabnew<CR>
+" tx タブを削除
+map <silent> [Tag]x :tabclose<CR>
+" tl 次のタブ
+map <silent> [Tag]l :tabnext<CR>
+" th 前のタブ
+map <silent> [Tag]h :tabprevious<CR>
 

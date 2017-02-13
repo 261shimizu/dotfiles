@@ -5,6 +5,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'Shougo/unite.vim'
 Plug 'ujihisa/unite-colorscheme'
 Plug 'itchyny/lightline.vim' " ステータスライン
+Plug 'itchyny/calendar.vim' "カレンダー
+
+"ギスト
+Plug 'lambdalisue/vim-gista', {'on': ['Gista', '<Plug>(gista-'] }
 
 " マークダウン
 Plug 'godlygeek/tabular'
@@ -86,10 +90,17 @@ nnoremap Ａ A
 nnoremap Ｉ I
 nnoremap Ｏ O
 
+"ESCが遠いのでjjに変更
+inoremap <silent> jj <ESC>
+inoremap <silent> っｊ <ESC>
+
+set clipboard=unnamed,autoselect
+
+
 " NERDTree関連
 let g:NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
-autocmd vimenter * NERDTree ←Treeを常に表示
+autocmd vimenter * NERDTree "←Treeを常に表示
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-t> :NERDTreeToggle<CR>
@@ -100,13 +111,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:lightline = { 'colorscheme': 'wombat' }
 
 " vim-markdown設定(最初3行はoctopressとかの話であんまり関係ない)
-let g:vim_markdown_liquid=1
-let g:vim_markdown_frontmatter=1
-let g:vim_markdown_math=1
+" let g:vim_markdown_liquid=1
+"let g:vim_markdown_frontmatter=1
+"let g:vim_markdown_math=1
 au BufRead,BufNewFile *.{txt,text} set filetype=markdown
 hi link htmlItalic LinuNr
 hi link htmlBold WarningMsg
 hi link htmlBoldItalic ErrorMsg
+"let g:previm_open_cmd='ブラウザ'
 
 " 行末の空白文字を可視化
 highlight TrailingSpaces ctermbg=red guibg=#FF0000
@@ -114,7 +126,12 @@ highlight Tabs ctermbg=black guibg=#000000
 au BufNewFile,BufRead * call matchadd('TrailingSpaces', ' \{-1,}$')
 au BufNewFile,BufRead * call matchadd('Tabs', '\t')
 
-" the jprefix key
+set nofoldenable " 折りたたみ無効化
+
+" gist連携
+let g:gista#client#default_username = 'username'
+
+" the prefix key
 nnoremap  [Tag] <Nop>
 nmap  t [Tag]
 

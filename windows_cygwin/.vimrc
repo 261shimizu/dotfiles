@@ -131,7 +131,7 @@ au BufNewFile,BufRead * call matchadd('Tabs', '\t')
 set nofoldenable " 折りたたみ無効化
 
 " gist連携
-let g:gista#client#default_username = '261shimizu'
+let g:gista#client#default_username = 'username'
 
 " the prefix key
 nnoremap [Tag] <Nop>

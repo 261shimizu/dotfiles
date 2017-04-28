@@ -43,7 +43,7 @@ call plug#end()
 set t_Co=256
 syntax on
 set background=dark
-colorscheme atom-dark-256
+colorscheme industry
 
 set number " 行数表示
 set title " 編集中のファイル名表示

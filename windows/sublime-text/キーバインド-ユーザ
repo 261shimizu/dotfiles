@@ -1,0 +1,102 @@
+[
+  // タブの切り替え
+  { "keys": ["H"], "command": "prev_view",
+           "context":
+           [
+                   { "key": "setting.is_widget", "operand": false },
+                   { "key": "setting.command_mode" }
+           ]
+  },
+  { "keys": ["L"], "command": "next_view",
+           "context":
+           [
+                   { "key": "setting.is_widget", "operand": false },
+                   { "key": "setting.command_mode" }
+           ]
+  },
+  { "keys": ["g", "T"], "command": "prev_view",
+           "context":
+           [
+                   { "key": "setting.is_widget", "operand": false },
+                   { "key": "setting.command_mode" }
+           ]
+  },
+   // インサートから抜ける
+  {
+      "keys": ["j", "j"],
+      "command": "_enter_normal_mode",
+      "args": {"mode": "mode_insert"},
+      "context": [
+          {"key": "vi_insert_mode_aware"}
+      ]
+  },
+    // サイドバーへの移動
+  { "keys": ["ctrl+t"], "command": "focus_side_bar"},
+
+   // サイドバー内の移動
+  { "keys": ["j"], "command": "move", "args": {"by": "lines", "forward": true}, "context":
+      [ {"key": "control", "operand": "sidebar_tree"} ]
+  },
+  { "keys": ["k"], "command": "move", "args": {"by": "lines", "forward": false}, "context":
+      [ {"key": "control", "operand": "sidebar_tree"} ]
+  },
+  { "keys": ["l"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+      [ {"key": "control", "operand": "sidebar_tree"} ]
+  },
+  { "keys": ["h"], "command": "move", "args": {"by": "characters", "forward": false}, "context":
+      [ {"key": "control", "operand": "sidebar_tree"} ]
+  },
+
+   // ペイン分割・編集
+  { "keys": ["ctrl+w", "k"], "command": "travel_to_pane", "args": {"direction": "up"} },
+  { "keys": ["ctrl+w", "l"], "command": "travel_to_pane", "args": {"direction": "right"} },
+  { "keys": ["ctrl+w", "j"], "command": "travel_to_pane", "args": {"direction": "down"} },
+  { "keys": ["ctrl+w", "h"], "command": "travel_to_pane", "args": {"direction": "left"} },
+
+  { "keys": ["ctrl+w", "K"], "command": "chain",
+      "args": {
+        "commands": [
+          ["create_pane", {"direction": "up"}],
+          ["travel_to_pane", {"direction": "up"}],
+          ["show_overlay", {"overlay": "goto", "show_files": true}]
+        ]
+      }
+  },
+
+  { "keys": ["ctrl+w", "L"], "command": "chain",
+      "args": {
+        "commands": [
+          ["create_pane", {"direction": "right"}],
+          ["travel_to_pane", {"direction": "right"}],
+          ["show_overlay", {"overlay": "goto", "show_files": true}]
+        ]
+      }
+  },
+
+  { "keys": ["ctrl+w", "J"], "command": "chain",
+      "args": {
+        "commands": [
+          ["create_pane", {"direction": "down"}],
+          ["travel_to_pane", {"direction": "down"}],
+          ["show_overlay", {"overlay": "goto", "show_files": true}]
+        ]
+      }
+  },
+
+  { "keys": ["ctrl+w", "H"], "command": "chain",
+      "args": {
+        "commands": [
+          ["create_pane", {"direction": "left"}],
+          ["travel_to_pane", {"direction": "left"}],
+          ["show_overlay", {"overlay": "goto", "show_files": true}]
+        ]
+      }
+  },
+
+  { "keys": ["ctrl+w", "x"], "command": "destroy_pane", "args": {"direction": "self"} },
+
+  { "keys": ["ctrl+left"], "command": "resize_active_group", "args" : { "direction" : "left" } },
+  { "keys": ["ctrl+right"], "command": "resize_active_group", "args" : { "direction" : "right" } },
+  { "keys": ["ctrl+up"], "command": "resize_active_group", "args" : { "direction" : "up" } },
+  { "keys": ["ctrl+down"], "command": "resize_active_group", "args" : { "direction" : "down" } },
+]

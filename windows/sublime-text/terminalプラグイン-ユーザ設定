@@ -1,0 +1,7 @@
+// 事前にapt-cyg install chere とかでcygwin上でchereをインストールしておくこと.
+// JSONはコメント扱えないので、この２行は実際の設定ファイルでは削除すること。
+// ちなみに、cygwinを管理者権限で開いて、chere -ian -e "Open in Bash(&B)" -t minttyとすると、エクスプローラ等から右クリックメニューに追加される
+{
+  "terminal": "C:/cygwin64/bin/mintty.exe",
+  "parameters": ["/bin/xhere", "/bin/bash", "`%CWD%`"]
+}

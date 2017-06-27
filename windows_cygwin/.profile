@@ -44,6 +44,7 @@ alias cdu='cd .. && ls -l'
 
 #デスクトップへの移動がめんどくさい
 alias desktop='cd ~/desktop && ls -l'
+alias dt='desktop'
 
 #awsの自動補完機能
 complete -C aws_completer aws
@@ -55,10 +56,6 @@ complete -C aws_completer aws
 
 #以下を/etc/bash.bashrcに追記
 #PS1='\[\e[32m\]ホスト名 \[\e[34m\]\w\[\e[0m\] \$ '
-
-
-#起動時にdesktopに移動
-cd ~/desktop
 
 #カウントダウンとストップウォッチ
 function countdown(){

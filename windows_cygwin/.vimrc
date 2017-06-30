@@ -97,6 +97,10 @@ nnoremap Ｏ O
 inoremap <silent> jj <ESC>
 inoremap <silent> っｊ <ESC>
 
+" クリップボードと連携
+vmap ,y "*y
+nmap ,p "*p
+
 "クリップボード使用
 set clipboard=unnamed,autoselect
 

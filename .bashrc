@@ -26,4 +26,4 @@ export EDITOR=vim
 
 
 # gitのプロンプト表示のシェル
-source ~/.git-prompt.sh
+source /usr/share/doc/git-1.8.3.1/contrib/completion/git-prompt.sh

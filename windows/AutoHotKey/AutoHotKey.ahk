@@ -1,22 +1,22 @@
-;; 無変換+hjklでカーソル移動、Blindをつけると修飾キー組み合わせ（Shift、Ctrなど）も可能
-vk1D & h::Send, {Blind}{left}
-vk1D & j::Send, {Blind}{down}
-vk1D & k::Send, {Blind}{up}
-vk1D & l::Send, {Blind}{right}
+SetCapsLockState, AlwaysOff ;; CapsLock無効化
+vkF0::return ;; 英数キー無効化
+
+vk1D & h::Send, {Blind}{left} ;; 無変換+h=左
+vk1D & j::Send, {Blind}{down} ;; 無変換+j=下
+vk1D & k::Send, {Blind}{up} ;; 無変換+k=上
+vk1D & l::Send, {Blind}{right} ;; 無変換+l=右
 
 vk1D & x::Send, {Blind}!{F4} ;; 無変換+x=ALT+F4
 vk1D:: Send, {Blind}{Esc} ;; 無変換単独=Esc
 vk1D & q:: Send, {Blind}{Esc} ;; 無変換+q=Esc
 
-;;変換（not無変換）
 vk1C:: Send, {Blind}{sc029} ;; 変換単独=全角/半角キー
 
-;; 無変換+y,oでalt+←/→
-vk1D & y::Send, {Blind}!{left}
-vk1D & o::Send, {Blind}!{right}
+vk1D & y::Send, {Blind}!{left} ;; 無変換+yでalt+左
+vk1D & o::Send, {Blind}!{right} ;; 無変換+oでalt+右
 
 #IfWinActive ahk_exe EXCEL.EXE
-#Include %A_ScriptDir%/IME.ahk
+#Include %A_ScriptDir%/IME.ahk ;; download https://www6.atwiki.jp/eamat/pages/17.html
 Return
 vk1D & y::Send, {Blind}^{PgUp} ;; Excelでは、無変換+y,oでシート切り替え
 vk1D & o::Send, {Blind}^{PgDn} ;; Excelでは、無変換+y,oでシート切り替え
@@ -58,26 +58,23 @@ F1::Return
 
 #IfWinActive
 
-;;無変換+wでword移動
-vk1D & w::Send, {Blind}^{right}
+vk1D & w::Send, {Blind}^{right} ;; 無変換+wで単語移動
 
-;; 無変換+0,$でhome,end
-vk1D & 0::Send, {Blind}{Home}
+vk1D & 0::Send, {Blind}{Home} ;; 無変換+0でhome
+;; 無変換+$でend
 vk1D & 4::
   If GetKeyState("shift", "P"){
     Send, {Blind}{End}
   }
   return
 
-;; 無変換+a,eでhome,end
-vk1D & a::Send, {Blind}{Home}
-vk1D & e::Send, {Blind}{End}
+vk1D & a::Send, {Blind}{Home} ;; 無変換+aでhome
+vk1D & e::Send, {Blind}{End} ;; 無変換+eでend
 
-;; 無変換+b,fでPgUp, PgDn
-vk1D & b::Send, {Blind}{PgUp}
-vk1D & f::Send, {Blind}{PgDn}
+vk1D & b::Send, {Blind}{PgUp} ;; 無変換+bでPgUp
+vk1D & f::Send, {Blind}{PgDn} ;; 無変換+fでPgDn
 
-; 入力系
+;; 入力系
 :O:`;sl::／                 ;セミコロン(;)に続けてSL<Enter>と入力すると全角スラッシュが入力される
 :O:`;bsl::＼                ;セミコロン(;)に続けてBSL<Enter>と入力すると全角バックスラッシュが入力される
 :O:`;kome::※               ;セミコロン(;)に続けてKOME<Enter>と入力すると※が入力される

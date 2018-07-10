@@ -20,6 +20,8 @@ vk1D & o::Send, {Blind}!{right} ;; 無変換+o = alt+右
 Return
 vk1D & y::Send, {Blind}^{PgUp} ;; (Excel)無変換+y,o = シート切り替え
 vk1D & o::Send, {Blind}^{PgDn} ;; (Excel)無変換+y,o = シート切り替え
+vk1D & u::Send, {Blind}^{End} ;; (Excel)無変換+u = ctrl+end(アクティブセル移動)
+vk1D & i::Send, {Blind}^{Home} ;; (Excel)無変換+i = ctrl+Home(アクティブセル移動)
 vk1C & y::Send, {Blind}^{left} ;; (Excel)変換+y = ctrl+left
 vk1C & o::Send, {Blind}^{right} ;; (Excel)変換+o = ctrl+right
 vk1C & u::Send, {Blind}^{down} ;; (Excel)変換+u = ctrl+down

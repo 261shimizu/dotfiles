@@ -1,4 +1,4 @@
-
+" :PlugInstall を実行してから
 " vim-plug関連
 
 call plug#begin('~/.vim/plugged')
@@ -47,7 +47,7 @@ set t_Co=256
 " vimの表示設定
 syntax on
 set background=dark
-colorscheme atom-dark-256
+colorscheme mrkn256
 set number " 行数表示
 set title " 編集中のファイル名表示
 set showmatch "対応する括弧を強調表示

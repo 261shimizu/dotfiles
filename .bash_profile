@@ -10,8 +10,6 @@ fi
 PATH=$PATH:$HOME/bin
 
 export PATH
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 #awsの自動補完機能
 complete -C aws_completer aws

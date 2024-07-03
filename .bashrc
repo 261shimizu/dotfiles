@@ -19,7 +19,7 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 
 # PS1='\[\e[0m\][\[\e[32m\]\u@\h\[\e[34m\] \W\[\e[35m\]$(__git_ps1 " (%s)")\e[0m\]]\$ '
-PS1='[\[\033[32m\]\u@\h\[\033[34m\] \w\[\033[35m\]$(__git_ps1 " (%s)")\[\033[00m\]]\$ '
+PS1='[\[\033[32m\]\u@\h\[\033[34m\] \W\[\033[35m\]$(__git_ps1 " (%s)")\[\033[00m\]]\$ '
 
 
 # User specific aliases and functions
